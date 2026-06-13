@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
   ═══════════════════════════════════════════════════════════════
 */
 
-const FRAME_COUNT = 240
+const FRAME_COUNT = 120
 const framePath = (i: number) => `/frames/f_${String(i).padStart(3, '0')}.jpg`
 
 // ingredient callouts — name, which side, vertical position, when to appear (0-1)
