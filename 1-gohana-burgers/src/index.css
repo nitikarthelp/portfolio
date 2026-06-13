@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/*
+  ── TSF DESIGN TOKENS ────────────────────────────────────────
+  Type scale: 1.25 ratio ladder. Use ONLY these sizes.
+  Spacing: Tailwind's default 4px base — stick to multiples of
+  8 (p-2, p-4, p-6, p-8, p-12, p-16, p-24, p-32...).
+  One accent color per project. Change --color-accent only.
+*/
+@theme {
+  --color-ink: #111111;
+  --color-paper: #0d0a08;
+  --color-muted: #6b6b66;
+  --color-accent: #ff6b2b; /* BURGER — flame orange. ONE accent. */
+  --color-surface: #ffffff;
+  --color-line: rgba(17, 17, 17, 0.1);
+
+  --font-display: 'Inter Tight', system-ui, sans-serif; /* swap per project */
+  --font-body: 'Inter', system-ui, sans-serif;          /* swap per project */
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Type scale — 1.25 ratio. text-step-* utilities below. */
+  --text-step--1: 0.8rem;    /* 12.8px  captions, labels */
+  --text-step-0: 1rem;       /* 16px    body */
+  --text-step-1: 1.25rem;    /* 20px    lead paragraph */
+  --text-step-2: 1.563rem;   /* 25px    h4 */
+  --text-step-3: 1.953rem;   /* 31px    h3 */
+  --text-step-4: 2.441rem;   /* 39px    h2 */
+  --text-step-5: 3.052rem;   /* 49px    h1 small */
+  --text-step-6: 3.815rem;   /* 61px    h1 */
+  --text-step-7: 4.768rem;   /* 76px    display */
+  --text-step-8: 5.96rem;    /* 95px    hero display */
+}
+
+@layer base {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: auto; } /* Lenis handles smoothness */
+  body {
+    font-family: var(--font-body);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--color-accent); color: white; }
+}
+
+/* Type scale utilities — use these instead of arbitrary sizes */
+@utility text-step--1 { font-size: var(--text-step--1); }
+@utility text-step-0  { font-size: var(--text-step-0); }
+@utility text-step-1  { font-size: var(--text-step-1); }
+@utility text-step-2  { font-size: var(--text-step-2); }
+@utility text-step-3  { font-size: var(--text-step-3); }
+@utility text-step-4  { font-size: var(--text-step-4); }
+@utility text-step-5  { font-size: var(--text-step-5); }
+@utility text-step-6  { font-size: var(--text-step-6); }
+@utility text-step-7  { font-size: var(--text-step-7); }
+@utility text-step-8  { font-size: var(--text-step-8); }
+
+/* Reveal-on-scroll primitives (pair with useReveal hook) */
+.reveal { opacity: 0; transform: translateY(40px); }
+
+/* Standard easing tokens — never use linear/ease-in for UI */
+:root {
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-inout-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
